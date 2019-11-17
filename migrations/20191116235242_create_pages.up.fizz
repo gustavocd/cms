@@ -1,0 +1,11 @@
+create_table("pages") {
+	t.Column("id", "integer", {primary: true})
+	t.Column("label", "string", {"size": 50})
+	t.Column("title", "string", {"size": 100})
+	t.Column("body", "text")
+	t.Column("slug", "string", {"size": 100})
+	t.Column("created_at", "timestamp", {"default": "now()"})
+	t.Column("updated_at", "timestamp", {"null": true})
+}
+
+add_index("pages", "slug", {"unique": true})
